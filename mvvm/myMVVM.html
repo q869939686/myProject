@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>这里是myMVVM</title>
+    <script src="./myMVVM.js"></script>
+</head>
+<body>
+<div id = 'app'>
+    <input type="text" v-model = 'name'>
+    <p>我的名字是{{name}}</p>
+    <p>我的年龄是{{age}}</p>
+    <p>我家狗的岁数是{{age2}}</p>
+</div>
+<script>
+    var my = new myMVVM({
+        el:'#app',
+        data:{
+            name:'miaoyu',
+            age:26,
+            smy:{
+                name:'smy',
+                age:24
+            }
+        },
+        computed:{
+            age2:function(){
+                return this.age-20
+            }
+        },
+        watch:{
+            name:function(newData){
+                console.log('name改变了')
+            }
+        }
+    });
+</script>
+</body>
+</html>
